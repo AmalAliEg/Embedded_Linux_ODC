@@ -80,7 +80,6 @@ Save_Database(){
     fi 
 
     #count the creation number of the backup files
-
     count=$(ls "$BackUp_DIR" | grep -c "^backup_" )
 
     #check over the condition and delete the oldest five files to save the memory
