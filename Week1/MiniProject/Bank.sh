@@ -69,7 +69,6 @@ add_client() {
 } 
 
  
-
 # Function to delete a client 
 
 delete_client() { 
