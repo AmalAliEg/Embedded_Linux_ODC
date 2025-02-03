@@ -25,7 +25,7 @@ This project is a Bash shell script designed to manage client data for a bank da
 
 ## Task Division
 
-### Core Functionality (Person 1)
+### Core Functionality
 1. **Database Initialization:**  
    Implement the `initialize_db` function to create the database file if it doesn’t exist.
 2. **Add Client:**  
@@ -35,7 +35,7 @@ This project is a Bash shell script designed to manage client data for a bank da
 4. **Save Database:**  
    Implement the `save_database` function to create a backup of the database.
 
-### Advanced Functionality (Person 2)
+### Advanced Functionality 
 1. **Update Client:**  
    Implement the `update_client` function to modify client details by their ID.
 2. **Search Client:**  
