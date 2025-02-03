@@ -66,3 +66,6 @@ This project is a Bash shell script designed to manage client data for a bank da
 2. Make it executable:
    ```bash
    chmod +x bank_system.sh
+
+3. Run:
+   ./bank_system.sh
