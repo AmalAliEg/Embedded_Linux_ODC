@@ -79,8 +79,11 @@ Save_Database(){
         echo "Backup Directory created successfully!"
     fi 
 
-    #count the creation number of the backup files
+    #create a backup file using the current date and hour for naming it
+    cp "$DATABASE" "$BackUp_DIR/backup_$(date +%Y%m%d_%H%M%S).txt"
+    echo "backup file created successfully!"
 
+    #count the creation number of the backup files
     count=$(ls "$BackUp_DIR" | grep -c "^backup_" )
 
     #check over the condition and delete the oldest five files to save the memory
@@ -89,15 +92,13 @@ Save_Database(){
         ls -1t "$BackUp_DIR"/backup_* | tail -n 5 | xargs rm -f
         echo "the oldest 5 backup files deleted successfully!"
 
+    else
+        echo "the counts value is: ${count}"
     fi
-
-    #create a backup file using the current date and hour for naming it
-    cp "$DATABASE" "$BackUp_DIR/backup_$(date +%Y%m%d_%H%M%S).txt"
-    echo "backup file created successfully!"
 
 }
 
-
+#function to update the clients data 
 update_client(){
     read -p "enter id of the client to update:"  Client_ID
 
@@ -117,6 +118,7 @@ update_client(){
       
 
 }
+#function search over client using its ID
 Search_Client(){
     read -p "enter id of the client to search :" Client_ID
     if grep -q "^$Client_ID" "$DATABASE";  then
@@ -127,6 +129,8 @@ Search_Client(){
 
 
 }
+
+#function to list all the clients 
 List_Clients() {
     if [ -s "$DATABASE" ]; then
         echo "listing all clients:"
@@ -139,6 +143,7 @@ List_Clients() {
     
 }
 
+#function to maintain the menu for control options
 Main_menu (){
     while true; do
        echo "--------------------------------------"
@@ -161,12 +166,16 @@ Main_menu (){
            5) List_Clients ;;
            6) Save_Database ;;
            7) echo " exitin..." ; break ;;
-           *) echo "invalid option. please try again "
+           *) echo "invalid option. please try again " ;;
         esac
     done
 }
+
 init_Database
 Main_menu
+
+#test each function 
+
 #Call the init function
 #init_Database          
 

@@ -2,5 +2,3 @@ ID                   | Client Name     | Account Number  | Phone Number    | Amo
 1                    | aml             | 678             | 88              | 567890-
 2                    | MARIAM          | 42              | 432             | 2345
 6                    | SAHAR           | 543             | 6543            | 3456
-9                    | amal aly        | 3456            | 3456            | 4567
-3                    | mazen           | 4567            | 4567            | 34567
