@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>550</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Smart Control Hub</string>
+  </property>
+  <property name="styleSheet">
+   <string>
+    QMainWindow {
+        background-color: #1a1a1a;
+    }
+    QPushButton {
+        background-color: #3498db;
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 14px;
+    }
+    QLabel {
+        color: white;
+        font-size: 16px;
+    }
+   </string>
+  </property>
+  
+  <widget class="QWidget" name="centralwidget">
+   <!-- Car Data Display Section -->
+   <widget class="QFrame" name="carDataFrame">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>380</width>
+      <height>200</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>
+      QFrame {
+          background-color: #2c3e50;
+          border-radius: 15px;
+      }
+     </string>
+    </property>
+    
+    <!-- Speed Display -->
+    <widget class="QLCDNumber" name="speedDisplay">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>120</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>
+       QLCDNumber {
+           background-color: #34495e;
+           color: #2ecc71;
+       }
+      </string>
+     </property>
+    </widget>
+    
+    <!-- RPM Display -->
+    <widget class="QLCDNumber" name="rpmDisplay">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>40</y>
+       <width>120</width>
+       <height>60</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+
+   <!-- Voice Command Section -->
+   <widget class="QFrame" name="voiceCommandFrame">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>220</y>
+      <width>380</width>
+      <height>240</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>
+      QFrame {
+          background-color: #2c3e50;
+          border-radius: 15px;
+      }
+     </string>
+    </property>
+    
+    <!-- Voice Command Buttons -->
+    <widget class="QPushButton" name="lightOnButton">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>160</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Lights On</string>
+     </property>
+    </widget>
+    
+    <widget class="QPushButton" name="lightOffButton">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>20</y>
+       <width>160</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Lights Off</string>
+     </property>
+    </widget>
+    
+    <widget class="QPushButton" name="gpsOnButton">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>90</y>
+       <width>160</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>GPS On</string>
+     </property>
+    </widget>
+    
+    <widget class="QPushButton" name="gpsOffButton">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>90</y>
+       <width>160</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>GPS Off</string>
+     </property>
+    </widget>
+   </widget>
+
+   <!-- Map Display Section -->
+   <widget class="QFrame" name="mapFrame">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>10</y>
+      <width>390</width>
+      <height>450</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>
+      QFrame {
+          background-color: #2c3e50;
+          border-radius: 15px;
+      }
+     </string>
+    </property>
+    
+    <widget class="QWebEngineView" name="mapView">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>370</width>
+       <height>430</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+
+   <!-- Status Bar -->
+   <widget class="QStatusBar" name="statusBar">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>460</y>
+      <width>800</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>
+      QStatusBar {
+          background-color: #34495e;
+          color: white;
+      }
+     </string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+</ui>

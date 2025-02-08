@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SmartControlHub</class>
+ <widget class="QMainWindow" name="SmartControlHub">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>550</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Smart Control Hub</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+    QMainWindow {
+        background-color: #2c3e50;
+    }
+    QPushButton {
+        background-color: #3498db;
+        color: white;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 14px;
+        min-width: 120px;
+    }
+    QPushButton:hover {
+        background-color: #2980b9;
+    }
+    QLabel {
+        color: white;
+        font-size: 16px;
+    }
+   </string>
+  </property>
+  
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    
+    <!-- Left Panel -->
+    <item>
+     <widget class="QFrame" name="leftPanel">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       
+       <!-- Date and Time Section -->
+       <item>
+        <widget class="QFrame" name="dateTimeFrame">
+         <layout class="QHBoxLayout" name="dateTimeLayout">
+          <item>
+           <widget class="QLabel" name="dateLabel">
+            <property name="text">
+             <string>Date:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="dayLabel">
+            <property name="text">
+             <string>Day:</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+
+       <!-- Voice Control Section -->
+       <item>
+        <widget class="QFrame" name="voiceControlFrame">
+         <layout class="QVBoxLayout" name="voiceLayout">
+          <item alignment="Qt::AlignCenter">
+           <widget class="QPushButton" name="micButton">
+            <property name="minimumSize">
+             <size>
+              <width>64</width>
+              <height>64</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string>
+              QPushButton#micButton {
+                  background-color: #3498db;
+                  border-radius: 32px;
+              }
+              QPushButton#micButton:hover {
+                  background-color: #ff9933;
+              }
+             </string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+
+       <!-- Control Buttons -->
+       <item>
+        <widget class="QFrame" name="controlButtonsFrame">
+         <layout class="QGridLayout" name="controlButtonsLayout">
+          <item row="0" column="0">
+           <widget class="QPushButton" name="lightsOnButton">
+            <property name="text">
+             <string>Lights On</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="gpsOnButton">
+            <property name="text">
+             <string>GPS On</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QPushButton" name="lightsOffButton">
+            <property name="text">
+             <string>Lights Off</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QPushButton" name="gpsOffButton">
+            <property name="text">
+             <string>GPS Off</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       
+      </layout>
+     </widget>
+    </item>
+
+    <!-- Right Panel (Maps) -->
+    <item>
+     <widget class="QFrame" name="mapsFrame">
+      <property name="minimumSize">
+       <size>
+        <width>400</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string>
+        QFrame#mapsFrame {
+            background-color: white;
+            border-radius: 10px;
+        }
+       </string>
+      </property>
+      <layout class="QVBoxLayout" name="mapsLayout">
+       <!-- Maps widget will be added programmatically -->
+      </layout>
+     </widget>
+    </item>
+    
+   </layout>
+  </widget>
+ </widget>
+</ui>
