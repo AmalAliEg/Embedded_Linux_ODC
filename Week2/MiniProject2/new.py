@@ -1,6 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QFrame, QGridLayout
 from PyQt5.QtCore import Qt, QThread, pyqtSignal, QUrl, QTimer, QDateTime
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 import speech_recognition as sr
 
@@ -18,11 +19,16 @@ class VoiceThread(QThread):
             try:
                 with sr.Microphone() as source:
                     self.listening_status.emit(True)
+                    self.recognizer.adjust_for_ambient_noise(source)
                     audio = self.recognizer.listen(source)
                     text = self.recognizer.recognize_google(audio)
                     self.command_detected.emit(text.lower())
-            except:
-                pass
+            except sr.UnknownValueError:
+                print("Could not understand audio")
+            except sr.RequestError:
+                print("Could not request results")
+            except Exception as e:
+                print(f"Error in voice recognition: {e}")
             
     def stop(self):
         self._running = False
@@ -32,48 +38,15 @@ class SmartControlHub(QMainWindow):
         super().__init__()
         self.setWindowTitle("Smart Control Hub")
         self.setGeometry(0, 0, 900, 550)
-        self.setStyleSheet("""
-            QMainWindow {
-                background-color: #2c3e50;
-            }
-            QPushButton {
-                background-color: #3498db;
-                color: white;
-                border-radius: 5px;
-                padding: 10px;
-                font-size: 14px;
-                min-width: 120px;
-            }
-            QPushButton:hover {
-                background-color: #2980b9;
-            }
-            QLabel {
-                color: white;
-                font-size: 16px;
-            }
-        """)
         
-        self.central_widget = QWidget()
-        self.setCentralWidget(self.central_widget)
+        # Main layout setup
+        central_widget = QWidget()
+        self.setCentralWidget(central_widget)
+        self.horizontal_layout = QHBoxLayout(central_widget)
         
-        self.horizontal_layout = QHBoxLayout(self.central_widget)
-        
-        # Left Panel
-        self.left_panel = QFrame()
-        self.left_panel.setFrameShape(QFrame.StyledPanel)
+        # Left panel setup
+        self.left_panel = QWidget()
         self.vertical_layout = QVBoxLayout(self.left_panel)
-        
-        # Date and Time Section
-        self.date_time_frame = QFrame()
-        self.date_time_layout = QHBoxLayout(self.date_time_frame)
-        
-        self.date_label = QLabel("Date:")
-        self.day_label = QLabel("Day:")
-        
-        self.date_time_layout.addWidget(self.date_label)
-        self.date_time_layout.addWidget(self.day_label)
-        
-        self.vertical_layout.addWidget(self.date_time_frame)
         
         # Voice Control Section
         self.voice_control_frame = QFrame()
@@ -81,8 +54,6 @@ class SmartControlHub(QMainWindow):
         
         self.mic_button = QPushButton()
         self.mic_button.setMinimumSize(64, 64)
-        self.open_button.setIcon(QIcon("speakerIcon.png"))
-
         self.mic_button.setObjectName("micButton")
         self.mic_button.setStyleSheet("""
             QPushButton#micButton {
@@ -115,30 +86,12 @@ class SmartControlHub(QMainWindow):
         
         self.horizontal_layout.addWidget(self.left_panel)
         
-        # Right Panel (Maps)
-        self.maps_frame = QFrame()
-        self.maps_frame.setMinimumSize(400, 0)
-        self.maps_frame.setStyleSheet("""
-            QFrame#mapsFrame {
-                background-color: white;
-                border-radius: 10px;
-            }
-        """)
-        self.maps_layout = QVBoxLayout(self.maps_frame)
-        
-        self.horizontal_layout.addWidget(self.maps_frame)
-        
         # Initialize variables
         self.BLUE_COLOR = "#3498db"
         self.ORANGE_COLOR = "#ff9933"
         
         self.lights_active = False
         self.gps_active = False
-        
-        self.map_view = None
-        
-        # Setup date and time display
-        self.setup_datetime()
         
         # Connect buttons
         self.lights_on_button.clicked.connect(lambda: self.handle_lights("on"))
@@ -149,21 +102,6 @@ class SmartControlHub(QMainWindow):
         # Initialize voice recognition
         self.setup_voice_recognition()
 
-    def setup_datetime(self):
-        self.timer = QTimer(self)
-        self.timer.timeout.connect(self.update_datetime)
-        self.timer.start(1000)
-        self.update_datetime()
-
-    def update_datetime(self):
-        current_datetime = QDateTime.currentDateTime()
-        date_text = current_datetime.toString("dd-MM-yyyy")
-        time_text = current_datetime.toString("hh:mm:ss AP")
-        day_text = current_datetime.toString("dddd")
-        
-        self.date_label.setText(f"Date: {date_text}")
-        self.day_label.setText(f"Day: {day_text}")
-
     def setup_voice_recognition(self):
         self.voice_thread = VoiceThread()
         self.voice_thread.command_detected.connect(self.handle_voice_command)
@@ -171,14 +109,23 @@ class SmartControlHub(QMainWindow):
         self.voice_thread.start()
 
     def handle_voice_command(self, command):
+        # Handle voice commands and update button colors
         if "lights on" in command:
             self.handle_lights("on")
+            self.lights_on_button.setStyleSheet(f"background-color: {self.ORANGE_COLOR};")
+            self.lights_off_button.setStyleSheet(f"background-color: {self.BLUE_COLOR};")
         elif "lights off" in command:
             self.handle_lights("off")
+            self.lights_off_button.setStyleSheet(f"background-color: {self.ORANGE_COLOR};")
+            self.lights_on_button.setStyleSheet(f"background-color: {self.BLUE_COLOR};")
         elif "gps on" in command:
             self.handle_gps("on")
+            self.gps_on_button.setStyleSheet(f"background-color: {self.ORANGE_COLOR};")
+            self.gps_off_button.setStyleSheet(f"background-color: {self.BLUE_COLOR};")
         elif "gps off" in command:
             self.handle_gps("off")
+            self.gps_off_button.setStyleSheet(f"background-color: {self.ORANGE_COLOR};")
+            self.gps_on_button.setStyleSheet(f"background-color: {self.BLUE_COLOR};")
 
     def update_mic_status(self, is_listening):
         self.mic_button.setStyleSheet(
@@ -194,24 +141,10 @@ class SmartControlHub(QMainWindow):
         self.gps_active = state == "on"
         self.gps_on_button.setEnabled(not self.gps_active)
         self.gps_off_button.setEnabled(self.gps_active)
-        
-        if self.gps_active:
-            self.setup_google_maps()
-        else:
-            if self.map_view:
-                self.map_view.setParent(None)
-                self.map_view = None
-
-    def setup_google_maps(self):
-        if not self.map_view:
-            self.map_view = QWebEngineView()
-            self.maps_layout.addWidget(self.map_view)
-            self.map_view.setUrl(QUrl("https://www.google.com/maps"))
 
     def closeEvent(self, event):
         self.voice_thread.stop()
         self.voice_thread.wait()
-        self.timer.stop()
         event.accept()
 
 if __name__ == '__main__':

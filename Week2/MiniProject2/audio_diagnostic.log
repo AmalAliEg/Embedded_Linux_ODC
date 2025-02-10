@@ -1,0 +1,106 @@
+2025-02-10 16:19:55,950 - INFO - Starting Comprehensive Audio Diagnostic
+2025-02-10 16:19:55,950 - INFO - === Audio System Diagnostic ===
+2025-02-10 16:19:55,951 - INFO - 
+--- Audio Service Status ---
+2025-02-10 16:19:55,981 - INFO - PipeWire Status: active
+2025-02-10 16:19:55,992 - INFO - PulseAudio Status: inactive
+2025-02-10 16:19:55,992 - INFO - 
+=== Audio Device Details ===
+2025-02-10 16:19:56,295 - INFO - Input Devices:
+2025-02-10 16:19:56,295 - INFO - Device 0:
+2025-02-10 16:19:56,295 - INFO -   Name: HDA Intel PCH: ALC3246 Analog (hw:0,0)
+2025-02-10 16:19:56,295 - INFO -   Input Channels: 2
+2025-02-10 16:19:56,295 - INFO -   Default Sample Rate: 44100.0
+2025-02-10 16:19:56,295 - INFO - Device 4:
+2025-02-10 16:19:56,296 - INFO -   Name: sysdefault
+2025-02-10 16:19:56,296 - INFO -   Input Channels: 128
+2025-02-10 16:19:56,296 - INFO -   Default Sample Rate: 48000.0
+2025-02-10 16:19:56,296 - INFO - Device 6:
+2025-02-10 16:19:56,296 - INFO -   Name: lavrate
+2025-02-10 16:19:56,296 - INFO -   Input Channels: 128
+2025-02-10 16:19:56,296 - INFO -   Default Sample Rate: 44100.0
+2025-02-10 16:19:56,296 - INFO - Device 7:
+2025-02-10 16:19:56,296 - INFO -   Name: samplerate
+2025-02-10 16:19:56,296 - INFO -   Input Channels: 128
+2025-02-10 16:19:56,296 - INFO -   Default Sample Rate: 44100.0
+2025-02-10 16:19:56,297 - INFO - Device 8:
+2025-02-10 16:19:56,297 - INFO -   Name: speexrate
+2025-02-10 16:19:56,297 - INFO -   Input Channels: 128
+2025-02-10 16:19:56,297 - INFO -   Default Sample Rate: 44100.0
+2025-02-10 16:19:56,297 - INFO - Device 9:
+2025-02-10 16:19:56,297 - INFO -   Name: pulse
+2025-02-10 16:19:56,297 - INFO -   Input Channels: 32
+2025-02-10 16:19:56,297 - INFO -   Default Sample Rate: 44100.0
+2025-02-10 16:19:56,297 - INFO - Device 10:
+2025-02-10 16:19:56,297 - INFO -   Name: speex
+2025-02-10 16:19:56,297 - INFO -   Input Channels: 1
+2025-02-10 16:19:56,297 - INFO -   Default Sample Rate: 44100.0
+2025-02-10 16:19:56,297 - INFO - Device 11:
+2025-02-10 16:19:56,298 - INFO -   Name: upmix
+2025-02-10 16:19:56,298 - INFO -   Input Channels: 8
+2025-02-10 16:19:56,298 - INFO -   Default Sample Rate: 44100.0
+2025-02-10 16:19:56,298 - INFO - Device 12:
+2025-02-10 16:19:56,298 - INFO -   Name: vdownmix
+2025-02-10 16:19:56,298 - INFO -   Input Channels: 6
+2025-02-10 16:19:56,298 - INFO -   Default Sample Rate: 44100.0
+2025-02-10 16:19:56,298 - INFO - Device 13:
+2025-02-10 16:19:56,298 - INFO -   Name: default
+2025-02-10 16:19:56,298 - INFO -   Input Channels: 32
+2025-02-10 16:19:56,298 - INFO -   Default Sample Rate: 44100.0
+2025-02-10 16:19:56,298 - INFO - 
+Output Devices:
+2025-02-10 16:19:56,299 - INFO - Device 1:
+2025-02-10 16:19:56,299 - INFO -   Name: HDA Intel PCH: HDMI 0 (hw:0,3)
+2025-02-10 16:19:56,299 - INFO -   Output Channels: 8
+2025-02-10 16:19:56,299 - INFO -   Default Sample Rate: 44100.0
+2025-02-10 16:19:56,299 - INFO - Device 2:
+2025-02-10 16:19:56,299 - INFO -   Name: HDA Intel PCH: HDMI 1 (hw:0,7)
+2025-02-10 16:19:56,299 - INFO -   Output Channels: 8
+2025-02-10 16:19:56,299 - INFO -   Default Sample Rate: 44100.0
+2025-02-10 16:19:56,299 - INFO - Device 3:
+2025-02-10 16:19:56,299 - INFO -   Name: HDA Intel PCH: HDMI 2 (hw:0,8)
+2025-02-10 16:19:56,299 - INFO -   Output Channels: 8
+2025-02-10 16:19:56,299 - INFO -   Default Sample Rate: 44100.0
+2025-02-10 16:19:56,300 - INFO - Device 5:
+2025-02-10 16:19:56,300 - INFO -   Name: hdmi
+2025-02-10 16:19:56,300 - INFO -   Output Channels: 8
+2025-02-10 16:19:56,300 - INFO -   Default Sample Rate: 44100.0
+2025-02-10 16:19:56,300 - INFO - Device 9:
+2025-02-10 16:19:56,300 - INFO -   Name: pulse
+2025-02-10 16:19:56,300 - INFO -   Output Channels: 32
+2025-02-10 16:19:56,300 - INFO -   Default Sample Rate: 44100.0
+2025-02-10 16:19:56,300 - INFO - Device 13:
+2025-02-10 16:19:56,300 - INFO -   Name: default
+2025-02-10 16:19:56,300 - INFO -   Output Channels: 32
+2025-02-10 16:19:56,301 - INFO -   Default Sample Rate: 44100.0
+2025-02-10 16:19:56,301 - INFO - 
+=== Speech Recognition Test ===
+2025-02-10 16:19:56,301 - INFO - Total Microphones Detected: 14
+2025-02-10 16:19:56,301 - INFO - Microphone 0: HDA Intel PCH: ALC3246 Analog (hw:0,0)
+2025-02-10 16:19:56,301 - INFO - Microphone 1: HDA Intel PCH: HDMI 0 (hw:0,3)
+2025-02-10 16:19:56,301 - INFO - Microphone 2: HDA Intel PCH: HDMI 1 (hw:0,7)
+2025-02-10 16:19:56,301 - INFO - Microphone 3: HDA Intel PCH: HDMI 2 (hw:0,8)
+2025-02-10 16:19:56,301 - INFO - Microphone 4: sysdefault
+2025-02-10 16:19:56,301 - INFO - Microphone 5: hdmi
+2025-02-10 16:19:56,301 - INFO - Microphone 6: lavrate
+2025-02-10 16:19:56,301 - INFO - Microphone 7: samplerate
+2025-02-10 16:19:56,301 - INFO - Microphone 8: speexrate
+2025-02-10 16:19:56,302 - INFO - Microphone 9: pulse
+2025-02-10 16:19:56,302 - INFO - Microphone 10: speex
+2025-02-10 16:19:56,302 - INFO - Microphone 11: upmix
+2025-02-10 16:19:56,302 - INFO - Microphone 12: vdownmix
+2025-02-10 16:19:56,302 - INFO - Microphone 13: default
+2025-02-10 16:19:56,345 - INFO - Adjusting for ambient noise...
+2025-02-10 16:19:57,330 - INFO - Microphone is ready. Please speak a test phrase.
+2025-02-10 16:20:04,244 - WARNING - Could not understand audio
+2025-02-10 16:20:04,247 - INFO - 
+=== System Compatibility Check ===
+2025-02-10 16:20:04,247 - INFO - Python Version: 3.12.3 (main, Jan 17 2025, 18:03:48) [GCC 13.3.0]
+2025-02-10 16:20:04,248 - INFO - SpeechRecognition Version: 3.14.1
+2025-02-10 16:20:04,248 - INFO - PyAudio Version: 0.2.14
+2025-02-10 16:20:04,248 - INFO - 
+--- Environment Variables ---
+2025-02-10 16:20:04,248 - INFO - PULSE_SERVER: Not Set
+2025-02-10 16:20:04,248 - INFO - JACK_START_SERVER: Not Set
+2025-02-10 16:20:04,249 - INFO - ALSA_CONFIG_PATH: Not Set
+2025-02-10 16:20:04,249 - INFO - XDG_RUNTIME_DIR: /run/user/1000
