@@ -5,10 +5,46 @@ from PyQt5.QtGui import QIcon, QPalette, QColor,QDesktopServices
 from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtBluetooth import QBluetoothDeviceDiscoveryAgent, QBluetoothSocket, QBluetoothUuid,QBluetoothAddress,QBluetoothServiceInfo
 
-
+import paho.mqtt.client as mqtt
 
 
 import HomeScreen
+
+
+class MQTTClient:
+    def __init__(self, broker, port, topic, username, password):
+        self.broker = broker
+        self.port = port
+        self.topic = topic
+        self.client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+        #self.client = mqtt.Client()
+        self.client.username_pw_set(username=username, password=password)
+        self.client.on_connect = self.on_connect
+        self.client.on_message = self.on_message
+
+    def on_connect(self, client, userdata, flags, rc, properties=None):
+        print(f"Connected to MQTT broker with code {rc}.")
+        self.client.subscribe(self.topic)
+        
+    def on_message(self, client, userdata, msg):
+        self.handle_mqtt_message(msg)
+
+    def handle_mqtt_message(self, msg):
+        print(f"Received message on {msg.topic}: {msg.payload.decode('utf-8')}")
+
+    def publish_message(self, message):
+        self.client.publish(self.topic, message)
+        print(f"Published message: {message}")
+
+    def start(self):
+        self.client.connect(self.broker, self.port, 60)
+        self.client.loop_start()
+
+    def stop(self):
+        self.client.loop_stop()
+        self.client.disconnect()
+    
+
 
 
 # --------------------- Room Home ---------------------
@@ -263,6 +299,13 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = RoomWindow()
     window.show()
+    mqtt_client = MQTTClient(
+        broker='b37.mqtt.one',
+        port=1883,
+        topic='HomeControl',
+        username='35celv8628',
+        password='890fijpqtw'
+    )
     sys.exit(app.exec_())
 
 
