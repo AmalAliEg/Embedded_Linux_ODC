@@ -1,0 +1,12 @@
+the DISPLAY environment variable is not correctly set for X11 forwarding. 
+SCREENSHOT OF THE RASPBERRYPI
+SCREENSHOT OF THE LAPTOP
+SINCE IT IS EMPTY 
+ Set the DISPLAY Variable Manually
+ COMMAND TO WRTE
+ 		export DISPLAY=localhost:10.0
+
+
+
+
+
