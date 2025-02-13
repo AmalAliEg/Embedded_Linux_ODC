@@ -2,6 +2,7 @@ import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QFrame, QGridLayout
 from PyQt5.QtCore import Qt, QThread, pyqtSignal, QUrl, QTimer, QDateTime
 from PyQt5.QtWebEngineWidgets import QWebEngineView
+from PyQt5.QtGui import QIcon
 import speech_recognition as sr
 
 class VoiceThread(QThread):
@@ -81,7 +82,7 @@ class SmartControlHub(QMainWindow):
         
         self.mic_button = QPushButton()
         self.mic_button.setMinimumSize(64, 64)
-        self.open_button.setIcon(QIcon("speakerIcon.png"))
+        self.mic_button.setIcon(QIcon("speakerIcon.png"))
 
         self.mic_button.setObjectName("micButton")
         self.mic_button.setStyleSheet("""
