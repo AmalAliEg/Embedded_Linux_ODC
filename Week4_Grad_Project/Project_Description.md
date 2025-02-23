@@ -81,8 +81,8 @@ We have successfully integrated the application with the Raspberry Pi. Once the 
 3. Mai El-shaheed
 
 ## Acknowledgments
-    - **Huge thanks to Eng. Eslam Hefny** for his unwavering support, effort, time, and dedication to teaching us throughout this course. His guidance has been invaluable in helping us navigate complex topics and grow as developers.
+- **Huge thanks to Eng. Eslam Hefny** for his unwavering support, effort, time, and dedication to teaching us throughout this course. His guidance has been invaluable in helping us navigate complex topics and grow as developers.
 
-    - **Special thanks to both Amit and Orange** for providing this incredible opportunity to skill up in Linux and embedded systems. This experience allowed us to dive into challenging topics and expand our knowledge in ways we never thought possible.
+- **Special thanks to both Amit and Orange** for providing this incredible opportunity to skill up in Linux and embedded systems. This experience allowed us to dive into challenging topics and expand our knowledge in ways we never thought possible.
 
-    We are grateful for the chance to work on this project, which has been a significant milestone in our learning journey. We hope this is just the first step toward many more achievements in our careers.
+We are grateful for the chance to work on this project, which has been a significant milestone in our learning journey. We hope this is just the first step toward many more achievements in our careers.
