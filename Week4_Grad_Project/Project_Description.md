@@ -46,32 +46,34 @@ We have successfully integrated the application with the Raspberry Pi. Once the 
    cd Embedded_Linux_ODC
 
 2. Install the required Python libraries:
-    ``` pip install -r requirements.txt
+    ```python 
+    pip install -r requirements.txt
 3. Set up the Raspberry Pi:
     - Ensure the camera module is connected and enabled.
     - Configure the MQTT broker settings in the RoomsScreen.py file if needed.
 4. Run the application:
-    ```python MainScreen.py
+    ```python 
+    python MainScreen.py
 
 ## Future Work
-    - Integration with Yocto/Buildroot: 
+- Integration with Yocto/Buildroot: 
         Replace Raspbian with a custom Linux distribution built using Yocto or Buildroot for better optimization and customization.
 
-    - Enhanced Voice Control: 
+- Enhanced Voice Control: 
         Add more voice commands and improve speech recognition accuracy.
 
-    - IoT Integration: 
+- IoT Integration: 
         Expand the Smart Home module to support more IoT devices and protocols.
 
-    -Advanced Lane Detection: 
+-Advanced Lane Detection: 
         Improve the lane detection algorithm for better accuracy and reliability.
 ## Project Structure
-    - main.py: Entry point of the application.
-    - HomeScreen.py: Implements the Smart Home module.
-    - TvScreen.py: Implements the Smart TV module.
-    - CarScreen.py: Implements the Car Infotainment module.
-    - RoomsScreen.py: Handles room-specific controls using MQTT.
-    - utils.py: Utility functions for path managment.
+- main.py: Entry point of the application.
+- HomeScreen.py: Implements the Smart Home module.
+- TvScreen.py: Implements the Smart TV module.
+- CarScreen.py: Implements the Car Infotainment module.
+- RoomsScreen.py: Handles room-specific controls using MQTT.
+- utils.py: Utility functions for path managment.
 
 ## Contributors
 1. Amal Ali
